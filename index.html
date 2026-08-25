@@ -12,14 +12,19 @@
     <p>A4 · 2×2 grid</p>
   </header>
 
-  <div class="page">
-    <div class="cell"><span>Cell 1</span></div>
-    <div class="cell"><span>Cell 2</span></div>
-    <div class="cell"><span>Cell 3</span></div>
-    <div class="cell"><span>Cell 4</span></div>
+  <div class="page" id="page">
+    <div class="column" id="col-left" style="flex-basis: 50%">
+      <div class="cell"><span>Cell 1</span></div>
+      <div class="cell"><span>Cell 3</span></div>
+    </div>
+    <div class="divider" id="divider"></div>
+    <div class="column" id="col-right" style="flex-basis: 50%">
+      <div class="cell"><span>Cell 2</span></div>
+      <div class="cell"><span>Cell 4</span></div>
+    </div>
   </div>
 
-  <footer>session 1 — proportions only, no drag or photos yet</footer>
+  <footer>session 2 — one draggable divider, percentage-based columns</footer>
 
   <script src="script.js"></script>
 </body>
