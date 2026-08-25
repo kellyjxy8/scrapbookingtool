@@ -23,6 +23,7 @@ Keep this separation as the project grows — don't reintroduce inline `<style>`
 - I'm a beginner learning as I go (PM background, not an engineer). Explain unfamiliar code before I approve a diff — the *why* behind an approach, not just what a line does.
 - Keep changes small and reviewable. One feature per request, not multiple bundled together.
 - Commit after each working piece, with a clear message describing what changed.
+- Comment non-obvious logic in code — especially anywhere the "why" behind a decision isn't clear just from reading it (e.g. a calculation that could have been done a simpler way, or a choice that only makes sense given a constraint elsewhere in the project). Don't comment self-explanatory lines (simple variable assignments, clearly-named function calls) — comments should earn their place, not appear on everything. Write comments for a reader who is a PM, not an engineer: assume familiarity with the project's goals but not with JS syntax or idioms.
 
 ## Roadmap
 
