@@ -39,6 +39,8 @@ header p {
 
 /* The page: fixed A4 aspect ratio (210mm x 297mm = 1 : 1.4142) */
 .page {
+  /* Anchors the divider bar below — without this, the divider would
+     position itself relative to the whole browser window instead of the page. */
   position: relative;
   background: var(--paper);
   width: min(70vh, 90vw);
@@ -51,6 +53,9 @@ header p {
 .column {
   display: flex;
   flex-direction: column;
+  /* Column width is set as a percentage from script.js when you drag the
+     divider. flex-grow/shrink are off so the browser never resizes columns
+     on its own and overrides that percentage. */
   flex-grow: 0;
   flex-shrink: 0;
   min-width: 0;
@@ -58,11 +63,16 @@ header p {
 }
 
 .divider {
+  /* Positioned on top of the page rather than sandwiched between the two
+     columns, so it doesn't take up its own width — that way the two
+     columns' widths can add up to exactly 100%. */
   position: absolute;
   top: 2px;
   bottom: 2px;
   left: 50%;
   width: 6px;
+  /* Shifts the bar half its own width to the left so it's centered on the
+     boundary between columns, rather than starting right at it. */
   margin-left: -3px;
   background: var(--accent);
   opacity: 0.5;
@@ -77,6 +87,9 @@ header p {
 }
 
 .cell {
+  /* flex: 1 splits the column height evenly between its two cells.
+     min-height: 0 stops flex's default sizing from forcing the column
+     taller than the page to fit its cells' natural content size. */
   flex: 1;
   min-height: 0;
   background: repeating-linear-gradient(
