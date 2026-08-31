@@ -18,6 +18,8 @@ A user can specify a page size, start from a blank page and split it into any ar
 | 7 | Save/persist — IndexedDB save of current project state | Not started |
 | 8 | Gallery — list of saved projects, thumbnails, reopen | Not started |
 
+Backlog (unscheduled ideas, e.g. preset layout gallery, cell delete/merge) is tracked as GitHub Issues on this repo, not in this file.
+
 ## Key decisions
 
 - No accounts, no sharing, no multi-user — single-user personal tool.
