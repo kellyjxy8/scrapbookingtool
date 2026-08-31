@@ -1,5 +1,9 @@
 # Roadmap
 
+## MVP
+
+A user can specify a page size, start from a blank page and split it into any arrangement of regions (uniform or asymmetric) using divider-based splitting, place a photo in each region, and export a print-ready file at that size.
+
 ## Session plan
 
 | # | Session | Status |
@@ -13,11 +17,6 @@
 | 6 | Export — on-screen layout → print-ready PDF at correct DPI | Not started |
 | 7 | Save/persist — IndexedDB save of current project state | Not started |
 | 8 | Gallery — list of saved projects, thumbnails, reopen | Not started |
-
-## Backlog (not yet scheduled)
-
-- Preset layout gallery — pick a starting split layout instead of building from blank.
-- Cell delete/merge — remove a split and fold its space back into the neighboring cell.
 
 ## Key decisions
 
