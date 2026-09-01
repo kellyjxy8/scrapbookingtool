@@ -12,7 +12,7 @@ A user can specify a page size, start from a blank page and split it into any ar
 | — | Split into index.html / styles.css / script.js | Done |
 | 2 | Draggable divider — drag a line, adjacent columns resize live | Done |
 | 3 | Page size as input — grid takes width/height instead of hardcoded A4 (small) | Done |
-| 4 | Recursive splitting from a blank page — the mechanic that makes real layouts possible; builds directly on the divider-drag math from session 2 | Next |
+| 4 | Recursive splitting — uniform rows × columns grid input (done) as a starting point, then click-a-region-to-split for asymmetric layouts | In progress |
 | 5 | Upload — one photo into one region | Not started |
 | 6 | Export — on-screen layout → print-ready PDF at correct DPI | Not started |
 | 7 | Save/persist — IndexedDB save of current project state | Not started |

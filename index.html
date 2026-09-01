@@ -21,19 +21,14 @@
     </select>
   </div>
 
-  <div class="page" id="page">
-    <div class="column" id="col-left" style="flex-basis: 50%">
-      <div class="cell"><span>Cell 1</span></div>
-      <div class="cell"><span>Cell 3</span></div>
-    </div>
-    <div class="divider" id="divider"></div>
-    <div class="column" id="col-right" style="flex-basis: 50%">
-      <div class="cell"><span>Cell 2</span></div>
-      <div class="cell"><span>Cell 4</span></div>
-    </div>
+  <div class="size-controls">
+    <label>Rows <input type="number" id="grid-rows" value="2" min="1" step="1"></label>
+    <label>Columns <input type="number" id="grid-cols" value="2" min="1" step="1"></label>
   </div>
 
-  <footer>session 3 — user-specified page size</footer>
+  <div class="page" id="page"></div>
+
+  <footer>session 4 — grid size input (rows × columns)</footer>
 
   <script src="script.js"></script>
 </body>

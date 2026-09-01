@@ -62,47 +62,31 @@ header p {
 }
 
 /* The page: aspect ratio is set inline by script.js from the width/height
-   inputs above. This value is only the fallback shown before JS runs. */
+   inputs above; grid-template-columns/rows are set inline by script.js from
+   the rows/columns inputs. The values here are only fallbacks before JS runs. */
 .page {
-  /* Anchors the divider bar below — without this, the divider would
-     position itself relative to the whole browser window instead of the page. */
+  /* Anchors the divider bars below — without this, they'd position
+     themselves relative to the whole browser window instead of the page. */
   position: relative;
   background: var(--paper);
   width: min(70vh, 90vw);
   aspect-ratio: 210 / 297;
   box-shadow: 0 4px 24px rgba(0,0,0,0.12);
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 2px;
   padding: 2px;
 }
 
-.column {
-  display: flex;
-  flex-direction: column;
-  /* Column width is set as a percentage from script.js when you drag the
-     divider. flex-grow/shrink are off so the browser never resizes columns
-     on its own and overrides that percentage. */
-  flex-grow: 0;
-  flex-shrink: 0;
-  min-width: 0;
-  gap: 2px;
-}
-
 .divider {
-  /* Positioned on top of the page rather than sandwiched between the two
-     columns, so it doesn't take up its own width — that way the two
-     columns' widths can add up to exactly 100%. */
+  /* Positioned on top of the grid rather than occupying a grid track itself,
+     so it doesn't take up its own space — that way each row/column's
+     percentages can still add up to exactly 100%. */
   position: absolute;
-  top: 2px;
-  bottom: 2px;
-  left: 50%;
-  width: 6px;
-  /* Shifts the bar half its own width to the left so it's centered on the
-     boundary between columns, rather than starting right at it. */
-  margin-left: -3px;
   background: var(--accent);
   opacity: 0.5;
   border-radius: 3px;
-  cursor: col-resize;
   z-index: 10;
 }
 
@@ -111,12 +95,27 @@ header p {
   opacity: 0.9;
 }
 
+.divider--vertical {
+  top: 2px;
+  bottom: 2px;
+  width: 6px;
+  /* Shifts the bar half its own width to the left so it's centered on the
+     boundary between columns, rather than starting right at it. */
+  margin-left: -3px;
+  cursor: col-resize;
+}
+
+.divider--horizontal {
+  left: 2px;
+  right: 2px;
+  height: 6px;
+  /* Same centering idea as the vertical divider, but shifted upward onto
+     the boundary between rows instead of leftward onto a column boundary. */
+  margin-top: -3px;
+  cursor: row-resize;
+}
+
 .cell {
-  /* flex: 1 splits the column height evenly between its two cells.
-     min-height: 0 stops flex's default sizing from forcing the column
-     taller than the page to fit its cells' natural content size. */
-  flex: 1;
-  min-height: 0;
   background: repeating-linear-gradient(
     45deg,
     #f2eee5,
