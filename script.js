@@ -91,23 +91,35 @@ function attachDividerDrag(el, axis, index, sizes) {
 }
 
 function renderGrid() {
+  // Simplest way to handle "the grid might now have a different number of
+  // cells than before" is to throw away everything inside .page and build
+  // it fresh, rather than trying to figure out which old cells to keep.
   page.innerHTML = '';
   applyTrackSizes();
 
   const cols = colWidths.length;
   const rows = rowHeights.length;
 
+  // Cells are added row by row, left to right within each row — that order
+  // matters, because CSS Grid fills in cells in the order they appear in
+  // the HTML. Add them in any other order and they'd land in the wrong
+  // squares even though colWidths/rowHeights were correct.
   for (let r = 0; r < rows; r++) {
     for (let c = 0; c < cols; c++) {
       const cell = document.createElement('div');
       cell.className = 'cell';
       const label = document.createElement('span');
+      // Turns a (row, column) position into a single running count, e.g.
+      // row 1/col 2 in a 3-column grid becomes cell 5 (1*3 + 2 + 1).
       label.textContent = 'Cell ' + (r * cols + c + 1);
       cell.appendChild(label);
       page.appendChild(cell);
     }
   }
 
+  // N columns only have N-1 boundaries between them (a 4-column grid has
+  // 3 seams to drag), so the divider count is always one less than the
+  // track count — same reasoning for rows just below.
   for (let i = 0; i < cols - 1; i++) {
     const divider = document.createElement('div');
     divider.className = 'divider divider--vertical';
